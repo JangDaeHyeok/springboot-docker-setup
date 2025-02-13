@@ -1,0 +1,30 @@
+spring:
+  # redis
+  data:
+    redis:
+      port: 6379
+      host: redis
+      password: 1234
+  # datasource
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mysql://mysql:3306/idempotent_practice
+    username: root
+    password: 1234
+  # jpa
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true # sql show
+        format_sql: true # pretty show
+    hibernate:
+      ddl-auto: update # db init (create, create-drop, update, validate, none)
+  web:
+    resources:
+      add-mappings: false
+  # 소스코드 수정 실시간 반영을 위한 devtools 설정 추가
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
